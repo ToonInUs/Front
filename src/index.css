@@ -2,21 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* General */
+section {
+  width: min(100%, 500px);
+}
+
 /* Login */
-.login form {
+.login form, .signup form {
     display: flex;
     flex-flow: column nowrap;
     gap: 1rem;
     margin-top: 1rem;
+    padding: 1rem;
   }
   
-  .login input {
-    padding: 0.5em;
-    border-radius: 10px;
-  }
 
-  .login button {
+.login button, .signup button {
     padding: 0.5rem;
     border-radius: 25px;
-
-  }
+}
