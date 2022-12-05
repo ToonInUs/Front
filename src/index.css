@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* General */
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 section {
   width: min(100%, 500px);
 }
