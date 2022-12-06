@@ -90,7 +90,7 @@ const Login = () => {
                 {/* type="button" 으로 설정하면 submit을 막을 수 있다 */}
                 <button type="button" className="bg-gray-100 text-black hover:bg-gray-200 active:bg-gray-200 focus:outline-none focus:ring focus:ring-black-200">
                     {/* block 속성으로 Link가 버튼 전체를 차지하도록함. 버튼 아무데나 눌러도 Link 동작 */}
-                    <Link to="/signup" className="block bg-gray-100 text-black hover:bg-gray-200 active:bg-gray-200 focus:outline-none focus:ring focus:ring-black-200">
+                    <Link to="/signup" className="block">
                         회원가입
                     </Link>
                 </button>
