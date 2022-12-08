@@ -31,9 +31,9 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide><img src="../../../img/thumbnail1.jpg"></img></SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide><img src="../../../img/thumbnail2.jpg"></img></SwiperSlide>
+        <SwiperSlide><img src="../../../img/thumbnail3.jpg"></img></SwiperSlide>
+        <SwiperSlide><img src="../../../img/thumbnail4.jpg"></img></SwiperSlide>
         <SwiperSlide>Slide 5</SwiperSlide>
         <SwiperSlide>Slide 6</SwiperSlide>
         <SwiperSlide>Slide 7</SwiperSlide>
