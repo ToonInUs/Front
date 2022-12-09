@@ -1,49 +1,24 @@
 import React from "react";
+import CommentPages from "../../pages/CommentPages";
 
 const TabDetail = ({ }) => {
   const [openTab, setOpenTab] = React.useState(1);
 
-  // 정보를 받아서 그 정보의 개수만큼 tab 만들기
-  const tabs = () => {
-    
-    return (
-      <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-        <a
-          className={
-            "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-            (openTab === 1
-              ? "text-gray-800"
-              : "text-gray-400")
-          }
-          onClick={e => {
-            e.preventDefault();
-            setOpenTab(1);
-          }}
-          data-toggle="tab"
-          href="#link1"
-          role="tablist"
-        >
-          Profile
-        </a>
-      </li>
-    )
-  }
-
   return (
     <>
       <div className="flex flex-wrap">
-        <div className="w-full border-b border-gray-200 dark:border-gray-700">
+        <div className="content w-full border-b border-gray-200 dark:border-gray-700">
           {/* tabs */}
           <ul
-            className="list-none flex-row flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+            className="list-none flex-row flex flex-wrap mb-3 text-center text-gray-400 dark:text-gray-400"
             role="tablist"
           >
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li className="mr-2 last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  "font-bold px-5 py-3 block " +
                   (openTab === 1
-                    ? "text-gray-800"
+                    ? "text-gray-800 border-b-2 border-gray-800"
                     : "text-gray-400")
                 }
                 onClick={e => {
@@ -54,15 +29,15 @@ const TabDetail = ({ }) => {
                 href="#link1"
                 role="tablist"
               >
-                Profile
+                줄거리
               </a>
             </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li className=" mr-2 last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  "font-bold px-5 py-3 block " +
                   (openTab === 2
-                    ? "text-gray-800"
+                    ? "text-gray-800 border-b-2 border-gray-800"
                     : "text-gray-400")
                 }
                 onClick={e => {
@@ -73,15 +48,15 @@ const TabDetail = ({ }) => {
                 href="#link2"
                 role="tablist"
               >
-                 Settings
+                 태그
               </a>
             </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li className="mr-2 last:mr-0 flex-auto text-center">
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  "font-bold px-5 py-3 block " +
                   (openTab === 3
-                    ? "text-gray-800"
+                    ? "text-gray-800 border-b-2 border-gray-800"
                     : "text-gray-400")
                 }
                 onClick={e => {
@@ -92,7 +67,7 @@ const TabDetail = ({ }) => {
                 href="#link3"
                 role="tablist"
               >
-                 Options
+                 댓글
               </a>
             </li>
           </ul>
@@ -102,18 +77,16 @@ const TabDetail = ({ }) => {
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                   <p>
-                    Collaboratively administrate empowered markets via
+                    {}줄거리
                   </p>
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <p>
-                    Completely synergize resource taxing relationships via
+                    태그
                   </p>
                 </div>
                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                  <p>
-                    Efficiently unleash cross-media information without
-                  </p>
+                  <CommentPages />
                 </div>
               </div>
             </div>
