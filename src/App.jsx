@@ -7,10 +7,13 @@ import TagSearchPages from './pages/TagSearchPages'
 import MyWebtoonPages from './pages/MyWebtoonPages'
 import MorePages from './pages/MorePages'
 import Welcome from './pages/WelcomePages'
+import Rename from './pages/RenamePages'
 
 import RequireAuth from './components/common/RequireAuth'
 import Header from './components/common/header'
 import Navbar from './components/common/navbar'
+import NoticePage from './pages/MorePages/NoticePage'
+import SettingPage from './pages/MorePages/SettingPage'
 
 function App() {
   return (
@@ -26,9 +29,12 @@ function App() {
           <Route path="tagsearch" element={<TagSearchPages />} />
           <Route path="mywebtoon" element={<MyWebtoonPages />} />
           <Route path="more" element={<MorePages />} />
+          <Route path="more/notice" element={<NoticePage />} />
+          <Route path="more/setting" element={<SettingPage />} />
 
           {/* protected routes */}
             <Route path="welcome" element={<Welcome />} />
+            <Route path="more/username" element={<Rename />} />
           {/* <Route element={<RequireAuth />}>
           </Route> */}
 
