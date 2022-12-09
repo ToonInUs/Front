@@ -14,6 +14,7 @@ import Header from './components/common/header'
 import Navbar from './components/common/navbar'
 import NoticePage from './pages/MorePages/NoticePage'
 import SettingPage from './pages/MorePages/SettingPage'
+import DetailPages from './pages/DetailPages'
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
           <Route path="more" element={<MorePages />} />
           <Route path="more/notice" element={<NoticePage />} />
           <Route path="more/setting" element={<SettingPage />} />
-
+          <Route path="webtoon/:id" element={<DetailPages />} />
+          
           {/* protected routes */}
             <Route path="welcome" element={<Welcome />} />
             <Route path="more/username" element={<Rename />} />
