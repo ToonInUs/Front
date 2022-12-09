@@ -58,6 +58,7 @@ const Rename = () => {
             <PageTitle title="프로필 수정" />
 
             <form onSubmit={handleSubmit}>
+                <label className="font-bold text-lg">{} 님</label>
                 <label>변경할 닉네임을 입력해주세요.</label>
                 <input
                     type="text"
@@ -70,7 +71,9 @@ const Rename = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                 />
-                {/* 중복확인버튼 추가하기 */}
+                <button type="button" className="text-sm w-18 bg-gray-200 ml-auto p-2 rounded-3xl hover:bg-gray-300 active:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-100">
+                    중복확인
+                </button>
                 <button className="bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring focus:ring-black-300 p-2 rounded-3xl">
                     변경하기
                 </button>
