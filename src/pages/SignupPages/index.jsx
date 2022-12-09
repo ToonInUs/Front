@@ -76,7 +76,7 @@ const Signup = () => {
             <PageTitle title="회원가입" />
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username" className="text-gray-900 dark:text-white">닉네임</label>
+                <label htmlFor="username" className="text-gray-900 dark:text-white">닉네임🔸</label>
                 <input
                     type="text"
                     id="username"
@@ -88,7 +88,10 @@ const Signup = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                 />
-                <label htmlFor="username" className="text-gray-900 dark:text-white">아이디</label>
+                <button type="button" className="text-sm w-18 bg-gray-200 ml-auto p-2 rounded-3xl hover:bg-gray-300 active:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-100">
+                    중복확인
+                </button>
+                <label htmlFor="username" className="text-gray-900 dark:text-white">아이디🔸</label>
                 <input
                     type="email" 
                     id="email"
@@ -99,8 +102,10 @@ const Signup = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                 />
-
-                <label htmlFor="password" className="text-gray-900 dark:text-white">비밀번호</label>
+                <button type="button" className="text-sm w-18 bg-gray-200 ml-auto p-2 rounded-3xl hover:bg-gray-300 active:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-100">
+                    중복확인
+                </button>
+                <label htmlFor="password" className="text-gray-900 dark:text-white">비밀번호🔸</label>
                 <input
                     type="password"
                     id="password"
