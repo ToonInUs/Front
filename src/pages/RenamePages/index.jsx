@@ -7,11 +7,11 @@ import { useLoginMutation } from '../../store/apis/authApiSlice'
 
 import PageTitle from '../../components/common/pageTitle'
 
-const Login = () => {
+
+const Rename = () => {
     const userRef = useRef()
     const errRef = useRef()
     const [user, setUser] = useState('')
-    const [pwd, setPwd] = useState('')
     const [errMsg, setErrMsg] = useState('')
     const navigate = useNavigate()
 
@@ -24,27 +24,25 @@ const Login = () => {
 
     useEffect(() => {
         setErrMsg('')
-    }, [user, pwd])
+    }, [user])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        try { // 로그인 성공
-            const userData = await login({ user, pwd }).unwrap()
-            dispatch(setCredentials({ ...userData, user }))
+        try { // 
+
             setUser('')
-            setPwd('')
-            navigate('/')
+            navigate('/more')
         } catch (err) {
             if (!err?.originalStatus) {
                 // isLoading: true until timeout occurs
                 setErrMsg('No Server Response');
             } else if (err.originalStatus === 400) {
-                setErrMsg('Missing Username or Password');
+                setErrMsg('Missing Username');
             } else if (err.originalStatus === 401) {
                 setErrMsg('Unauthorized');
             } else {
-                setErrMsg('Login Failed');
+                setErrMsg(' Failed');
             }
             errRef.current.focus();
         }
@@ -52,49 +50,30 @@ const Login = () => {
 
     const handleUserInput = (e) => setUser(e.target.value)
 
-    const handlePwdInput = (e) => setPwd(e.target.value)
 
     const content = isLoading ? <h1>Loading...</h1> : (
-        <section className="login">
+        <section className="rename">
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
 
-            {/* title */}
-            {/* <h1>로그인</h1> */}
-            <PageTitle title="로그인" />
+            <PageTitle title="프로필 수정" />
 
             <form onSubmit={handleSubmit}>
+                <label>변경할 닉네임을 입력해주세요.</label>
                 <input
                     type="text"
                     id="username"
                     ref={userRef}
                     value={user}
-                    placeholder="이메일 아이디"
+                    placeholder="숫자, 영문 조합 8~30자"
                     onChange={handleUserInput}
                     autoComplete="off"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                 />
-
-                <input
-                    type="password"
-                    id="password"
-                    value={pwd}
-                    placeholder="비밀번호"
-                    onChange={handlePwdInput}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
-                />
+                {/* 중복확인버튼 추가하기 */}
                 <button className="bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring focus:ring-black-300 p-2 rounded-3xl">
-                    로그인
+                    변경하기
                 </button>
-                {/* type="button" 으로 설정하면 submit을 막을 수 있다 */}
-                <button type="button" className="bg-gray-100 text-black hover:bg-gray-200 active:bg-gray-200 focus:outline-none focus:ring focus:ring-black-200 p-2 rounded-3xl">
-                    {/* block 속성으로 Link가 버튼 전체를 차지하도록함. 버튼 아무데나 눌러도 Link 동작 */}
-                    <Link to="/signup" className="block">
-                        회원가입
-                    </Link>
-                </button>
-
             </form>
 
         </section>
@@ -102,4 +81,4 @@ const Login = () => {
 
     return content
 }
-export default Login
+export default Rename

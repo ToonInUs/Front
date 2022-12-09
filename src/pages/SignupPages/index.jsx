@@ -126,7 +126,7 @@ const Signup = () => {
                     <li>[필수]약관3</li>
                 </ul>
 
-                <button className="bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring focus:ring-black-300">
+                <button className="bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring focus:ring-black-300 p-2 rounded-3xl">
                     회원가입
                 </button>
             </form>
