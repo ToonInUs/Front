@@ -34,11 +34,6 @@ const Slider = () => {
         <SwiperSlide><img src="../../../img/thumbnail2.jpg"></img></SwiperSlide>
         <SwiperSlide><img src="../../../img/thumbnail3.jpg"></img></SwiperSlide>
         <SwiperSlide><img src="../../../img/thumbnail4.jpg"></img></SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
       </Swiper>
     </>
   );
