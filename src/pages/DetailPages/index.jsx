@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 import TabDetail from '../../components/common/tapDetail'
 
 const DetailPages = () => {
-  const { params } = useParams()
-
+  const { id } = useParams()
+  console.log(id) // id로 웹툰 상세 정보 받아오기
   return (
     <section>
         <PageTitle title=" " />
@@ -18,9 +18,17 @@ const DetailPages = () => {
                 genre
                 flatform
             </label>
-            <a href="https://github.com/ToonInUs/Front" className="text-sm py-2 px-8 rounded-3xl ml-auto bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring focus:ring-black-300" target="_blank">바로 보러가기</a>
-            <Link className="text-sm py-2 px-8 rounded-3xl ml-auto bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring focus:ring-black-300">바로보러가기</Link>
-            {/* 하...버튼 필요없네?? Link에 바로 넣으면 되는구나 onClick도 들어가네.. 어이0*/}
+            <div className="flex flex-row">
+              {/* 웹툰 보러가기 링크 */}
+              <a href="https://github.com/ToonInUs/Front" className="text-sm py-2 px-8 rounded-3xl ml-auto bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring focus:ring-black-300" target="_blank">
+                바로 보러가기
+              </a>
+              {/* 관심웹툰 추가 */}
+              <button className="inline ml-3 mr-2">
+                <span className="material-symbols-rounded">favorite</span>
+              </button>
+            </div>
+
         </div>
         <TabDetail />
     </section>
