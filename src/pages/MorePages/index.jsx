@@ -33,8 +33,8 @@ const MorePages = () => {
 
       </section>
       <div className="flex flex-row">
-        <Button text={<><span class="material-symbols-rounded block">campaign</span><label className="align-middle text-md">공지사항</label></>} link="notice" color="lnline" />
-        <Button text={<><span class="material-symbols-rounded block">settings</span><label className="align-middle text-md">설정</label></>} link="setting" color="lnline"/>
+        <Button text={<><span className="material-symbols-rounded block">campaign</span><label className="align-middle text-md">공지사항</label></>} link="notice" color="lnline" />
+        <Button text={<><span className="material-symbols-rounded block">settings</span><label className="align-middle text-md">설정</label></>} link="setting" color="lnline"/>
         
       </div>
       
