@@ -60,3 +60,11 @@ section {
   height: 100%;
   object-fit: cover;
 }
+
+
+/* likeBtn */
+#likeBtn {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700
+}

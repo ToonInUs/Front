@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import PageTitle from '../../components/common/pageTitle'
 import { Link } from 'react-router-dom'
 import TabDetail from '../../components/common/tapDetail'
+import LikeButton from '../../components/common/likeButton'
 
 const DetailPages = () => {
   const { id } = useParams()
@@ -24,9 +25,7 @@ const DetailPages = () => {
                 바로 보러가기
               </a>
               {/* 관심웹툰 추가 */}
-              <button className="inline ml-3 mr-2">
-                <span className="material-symbols-rounded">favorite</span>
-              </button>
+              <LikeButton />
             </div>
 
         </div>
