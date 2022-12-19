@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 import { setCredentials } from '../../store/slices/authSlice'
@@ -7,10 +7,12 @@ import { useLoginMutation } from '../../store/apis/authApiSlice'
 import PageTitle from '../../components/common/pageTitle'
 
 
-const TagSearchPages = () => {
-  const tagRef = useRef()
+const SearchPages = () => {
+  const text = useParams()
+
+  const searchRef = useRef()
   const errRef = useRef()
-  const [tag, setTag] = useState('')
+  const [search, setSearch] = useState(text.text)
   const [errMsg, setErrMsg] = useState('')
   const navigate = useNavigate()
 
@@ -18,19 +20,19 @@ const TagSearchPages = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    tagRef.current.focus()
+    searchRef.current.focus()
   }, [])
 
   useEffect(() => {
       setErrMsg('')
-  }, [tag])
+  }, [search])
 
   const handleSubmit = async (e) => {
       e.preventDefault()
 
       try { // 태그 검색
 
-          navigate('/tagsearch')
+          navigate(`/search/${search}`)
       } catch (err) {
           if (!err?.originalStatus) {
               // isLoading: true until timeout occurs
@@ -46,21 +48,21 @@ const TagSearchPages = () => {
       }
   }
 
-  const handleTagInput = (e) => setTag(e.target.value)
+  const handleTagInput = (e) => setSearch(e.target.value)
 
 
   const content = isLoading ? <h1>Loading...</h1> : (
-      <section className="tagsearch">
+      <section className="search">
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
 
-          <PageTitle title="태그검색" />
+          <PageTitle title="검색" />
           <form onSubmit={handleSubmit} className="content">
               <input
                   type="text"
                   id="tag"
-                  ref={tagRef}
-                  value={tag}
-                  placeholder="태그를 입력하세요"
+                  ref={searchRef}
+                  value={search}
+                  placeholder="검색어를 입력하세요"
                   onChange={handleTagInput}
                   autoComplete="off"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -79,4 +81,4 @@ const TagSearchPages = () => {
   
 }
 
-export default TagSearchPages
+export default SearchPages

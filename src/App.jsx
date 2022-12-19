@@ -4,6 +4,7 @@ import LoginPages from './pages/LoginPages'
 import Signup from './pages/SignupPages'
 import HomePages from './pages/HomePages'
 import TagSearchPages from './pages/TagSearchPages'
+import SearchPages from './pages/SearchPages'
 import MyWebtoonPages from './pages/MyWebtoonPages'
 import MorePages from './pages/MorePages'
 import Welcome from './pages/WelcomePages'
@@ -28,6 +29,7 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="/*" element={<HomePages />} />
           <Route path="tagsearch" element={<TagSearchPages />} />
+          <Route path="search/:text" element={<SearchPages />} />
           <Route path="mywebtoon" element={<MyWebtoonPages />} />
           <Route path="more" element={<MorePages />} />
           <Route path="more/notice" element={<NoticePage />} />
