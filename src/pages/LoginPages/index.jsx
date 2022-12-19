@@ -29,7 +29,8 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        try { // 로그인 성공
+        try {
+            // 로그인 성공
             const userData = await login({ user, pwd }).unwrap()
             dispatch(setCredentials({ ...userData, user }))
             setUser('')
@@ -38,15 +39,15 @@ const Login = () => {
         } catch (err) {
             if (!err?.originalStatus) {
                 // isLoading: true until timeout occurs
-                setErrMsg('No Server Response');
+                setErrMsg('No Server Response')
             } else if (err.originalStatus === 400) {
-                setErrMsg('Missing Username or Password');
+                setErrMsg('Missing Username or Password')
             } else if (err.originalStatus === 401) {
-                setErrMsg('Unauthorized');
+                setErrMsg('Unauthorized')
             } else {
-                setErrMsg('Login Failed');
+                setErrMsg('Login Failed')
             }
-            errRef.current.focus();
+            errRef.current.focus()
         }
     }
 
@@ -54,9 +55,17 @@ const Login = () => {
 
     const handlePwdInput = (e) => setPwd(e.target.value)
 
-    const content = isLoading ? <h1>Loading...</h1> : (
+    const content = isLoading ? (
+        <h1>Loading...</h1>
+    ) : (
         <section className="login">
-            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+            <p
+                ref={errRef}
+                className={errMsg ? 'errmsg' : 'offscreen'}
+                aria-live="assertive"
+            >
+                {errMsg}
+            </p>
 
             {/* title */}
             {/* <h1>로그인</h1> */}
@@ -88,15 +97,16 @@ const Login = () => {
                     로그인
                 </button>
                 {/* type="button" 으로 설정하면 submit을 막을 수 있다 */}
-                <button type="button" className="bg-gray-100 text-black hover:bg-gray-200 active:bg-gray-200 focus:outline-none focus:ring focus:ring-black-200 p-2 rounded-3xl">
+                <button
+                    type="button"
+                    className="bg-gray-100 text-black hover:bg-gray-200 active:bg-gray-200 focus:outline-none focus:ring focus:ring-black-200 p-2 rounded-3xl"
+                >
                     {/* block 속성으로 Link가 버튼 전체를 차지하도록함. 버튼 아무데나 눌러도 Link 동작 */}
                     <Link to="/signup" className="block">
                         회원가입
                     </Link>
                 </button>
-
             </form>
-
         </section>
     )
 
