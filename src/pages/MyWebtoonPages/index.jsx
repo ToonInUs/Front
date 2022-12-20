@@ -1,6 +1,6 @@
 import React from 'react'
 import PageTitle from '../../components/common/PageTitle'
-import TabMywebtoon from '../../components/common/tapMywebtoon'
+import TabMywebtoon from '../../components/common/TabMywebtoon'
 import { Link } from 'react-router-dom'
 
 // tailwind badge
