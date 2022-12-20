@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router'
 import PageTitle from '../../components/common/PageTitle'
 import { Link } from 'react-router-dom'
-import TabDetail from '../../components/common/tapDetail'
+import TabDetail from '../../components/common/TabDetail'
 import LikeButton from '../../components/common/LikeButton'
 
 const DetailPages = () => {
