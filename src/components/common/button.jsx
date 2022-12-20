@@ -14,11 +14,6 @@ const Button = (props) => {
             >
                 {props.text}
             </Link>
-            // <button type={props.type} onClick={props.method} className="bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700 focus:outline-none focus:ring focus:ring-black-300 p-2 rounded-3xl">
-            //     <Link type={props.type} onClick={props.method} className="block" to={props.link}>
-            //         {props.text}
-            //     </Link>
-            // </button>
         )
     } else if (props.color === 'bright' && props.link) {
         // bright button

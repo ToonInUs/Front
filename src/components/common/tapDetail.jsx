@@ -1,7 +1,7 @@
 import React from 'react'
 import CommentPages from '../../pages/CommentPages'
 
-const TabDetail = ({}) => {
+const TabDetail = () => {
     const [openTab, setOpenTab] = React.useState(1)
 
     return (

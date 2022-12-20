@@ -1,5 +1,6 @@
 // back button, title, 구분선
 import { useNavigate } from 'react-router-dom'
+
 const PageTitle = (props) => {
     let navigate = useNavigate()
     return (

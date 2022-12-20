@@ -3,7 +3,6 @@ import React from 'react'
 const Tabs = ({}) => {
     const [openTab, setOpenTab] = React.useState(1)
 
-    // 정보를 받아서 그 정보의 개수만큼 tab 만들기
     const tabs = () => {
         return (
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
