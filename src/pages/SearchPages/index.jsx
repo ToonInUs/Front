@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import { setCredentials } from '../../store/slices/authSlice'
 import { useLoginMutation } from '../../store/apis/authApiSlice'
-import PageTitle from '../../components/common/pageTitle'
+import PageTitle from '../../components/common/PageTitle'
 
 const SearchPages = () => {
     const text = useParams()

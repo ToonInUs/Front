@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import PageTitle from '../../components/common/pageTitle'
-import Button from '../../components/common/button'
+import PageTitle from '../../components/common/PageTitle'
+import Button from '../../components/common/Button'
 
 const MorePages = () => {
     // username 받기

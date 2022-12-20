@@ -1,9 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import PageTitle from '../../components/common/pageTitle'
+import PageTitle from '../../components/common/PageTitle'
 import { Link } from 'react-router-dom'
 import TabDetail from '../../components/common/tapDetail'
-import LikeButton from '../../components/common/likeButton'
+import LikeButton from '../../components/common/LikeButton'
 
 const DetailPages = () => {
     const { id } = useParams()

@@ -11,7 +11,7 @@ import 'swiper/css/pagination'
 // import required modules
 import { FreeMode, Pagination } from 'swiper'
 
-const WebtoonSwiper = (props) => {
+const CategorySwiper = (props) => {
     return (
         <>
             <div className="border-b border-gray-300">
@@ -47,4 +47,4 @@ const WebtoonSwiper = (props) => {
     )
 }
 
-export default WebtoonSwiper
+export default CategorySwiper

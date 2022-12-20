@@ -1,5 +1,5 @@
 import React from 'react'
-import PageTitle from '../../components/common/pageTitle'
+import PageTitle from '../../components/common/PageTitle'
 import TabMywebtoon from '../../components/common/tapMywebtoon'
 import { Link } from 'react-router-dom'
 

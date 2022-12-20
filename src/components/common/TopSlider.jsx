@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper'
 
-const Slider = () => {
+const TopSwiper = () => {
     return (
         <>
             <Swiper
@@ -53,4 +53,4 @@ const Slider = () => {
     )
 }
 
-export default Slider
+export default TopSwiper

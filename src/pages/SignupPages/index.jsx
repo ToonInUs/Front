@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../store/slices/authSlice'
 import { useSignupMutation } from '../../store/apis/authApiSlice'
 
-import PageTitle from '../../components/common/pageTitle'
+import PageTitle from '../../components/common/PageTitle'
 
 const Signup = () => {
     const userRef = useRef()
