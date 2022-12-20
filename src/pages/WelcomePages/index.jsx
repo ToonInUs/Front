@@ -1,6 +1,9 @@
-import { useSelector } from "react-redux"
-import { selectCurrentUser, selectCurrentToken } from "../../store/slices/authSlice"
-import { Link } from "react-router-dom"
+import { useSelector } from 'react-redux'
+import {
+    selectCurrentUser,
+    selectCurrentToken,
+} from '../../store/slices/authSlice'
+import { Link } from 'react-router-dom'
 
 const Welcome = () => {
     const user = useSelector(selectCurrentUser)
@@ -13,7 +16,9 @@ const Welcome = () => {
         <section className="welcome">
             <h1>{welcome}</h1>
             <p>Token: {tokenAbbr}</p>
-            <button><Link to="/mywebtoon">취향태그 설정하러 가기</Link></button>
+            <button>
+                <Link to="/mywebtoon">취향태그 설정하러 가기</Link>
+            </button>
         </section>
     )
 

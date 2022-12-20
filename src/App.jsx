@@ -18,35 +18,33 @@ import SettingPage from './pages/MorePages/SettingPage'
 import DetailPages from './pages/DetailPages'
 
 function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Header />
-        <Navbar />
-        <Routes>
-          {/* public routes */}
-          <Route path="login" element={<LoginPages />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="/*" element={<HomePages />} />
-          <Route path="tagsearch" element={<TagSearchPages />} />
-          <Route path="search/:text" element={<SearchPages />} />
-          <Route path="mywebtoon" element={<MyWebtoonPages />} />
-          <Route path="more" element={<MorePages />} />
-          <Route path="more/notice" element={<NoticePage />} />
-          <Route path="more/setting" element={<SettingPage />} />
-          <Route path="webtoon/:id" element={<DetailPages />} />
-          
-          {/* protected routes */}
-            <Route path="welcome" element={<Welcome />} />
-            <Route path="more/username" element={<Rename />} />
-          {/* <Route element={<RequireAuth />}>
+    return (
+        <>
+            <BrowserRouter>
+                <Header />
+                <Navbar />
+                <Routes>
+                    {/* public routes */}
+                    <Route path="login" element={<LoginPages />} />
+                    <Route path="signup" element={<Signup />} />
+                    <Route path="/*" element={<HomePages />} />
+                    <Route path="tagsearch" element={<TagSearchPages />} />
+                    <Route path="search/:text" element={<SearchPages />} />
+                    <Route path="mywebtoon" element={<MyWebtoonPages />} />
+                    <Route path="more" element={<MorePages />} />
+                    <Route path="more/notice" element={<NoticePage />} />
+                    <Route path="more/setting" element={<SettingPage />} />
+                    <Route path="webtoon/:id" element={<DetailPages />} />
+
+                    {/* protected routes */}
+                    <Route path="welcome" element={<Welcome />} />
+                    <Route path="more/username" element={<Rename />} />
+                    {/* <Route element={<RequireAuth />}>
           </Route> */}
-
-        </Routes>
-      </BrowserRouter>
-
-    </>
-  )
+                </Routes>
+            </BrowserRouter>
+        </>
+    )
 }
 
 export default App
