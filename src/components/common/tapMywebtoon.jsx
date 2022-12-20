@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TabMywebtoon = ({}) => {
+const TabMywebtoon = () => {
     const [openTab, setOpenTab] = React.useState(1)
 
     return (
