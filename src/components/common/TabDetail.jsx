@@ -10,7 +10,7 @@ const TabDetail = () => {
                 <div className="content w-full border-b border-gray-200 dark:border-gray-700">
                     {/* tabs */}
                     <ul
-                        className="list-none flex-row flex flex-wrap mb-3 text-center text-gray-400 dark:text-gray-400"
+                        className="list-none flex-row flex flex-wrap text-center text-gray-400 dark:text-gray-400"
                         role="tablist"
                     >
                         <li className="mr-2 last:mr-0 flex-auto text-center">
@@ -72,8 +72,8 @@ const TabDetail = () => {
                         </li>
                     </ul>
                     {/* contents */}
-                    <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-                        <div className="px-4 py-5 flex-auto">
+                    <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
+                        <div className="px-2 py-5 flex-auto">
                             <div className="tab-content tab-space">
                                 <div
                                     className={
