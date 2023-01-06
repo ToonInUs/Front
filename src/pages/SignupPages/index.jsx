@@ -36,6 +36,7 @@ const Signup = () => {
 
         try {
             // 회원가입 성공
+            signup({ email: email, username: user, password: pwd })
             // const userData = await signup({ user, pwd }).unwrap()
             // dispatch(setCredentials({ ...userData, user }))
             setUser('')
@@ -66,6 +67,14 @@ const Signup = () => {
 
     const handleRepwdInput = (e) => {
         setRepwd(e.target.value)
+    }
+
+    const handleRepwdCheck = (e) => {
+        if (pwd == repwd) {
+            return
+        } else {
+            alert('비밀번호가 다릅니다.')
+        }
     }
 
     const content = isLoading ? (
@@ -149,6 +158,7 @@ const Signup = () => {
                     value={repwd}
                     placeholder="비밀번호 재입력"
                     onChange={handleRepwdInput}
+                    onBlur={handleRepwdCheck}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                 />

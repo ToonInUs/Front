@@ -17,7 +17,7 @@ const Welcome = () => {
             <h1>{welcome}</h1>
             <p>Token: {tokenAbbr}</p>
             <button>
-                <Link to="/mywebtoon">취향태그 설정하러 가기</Link>
+                <Link to="/edittag">취향태그 설정하러 가기</Link>
             </button>
         </section>
     )
