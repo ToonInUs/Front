@@ -11,10 +11,13 @@ const LikeButton = () => {
         <button
             id="btn"
             onClick={likeToggler}
-            className={(isLiked ? 'text-red-400 ' : '') + 'inline ml-3 mr-2'}
+            className={
+                (isLiked ? 'text-red-400 ' : 'text-gray-300 ') +
+                'inline ml-3 mr-2'
+            }
         >
             <span
-                className="material-symbols-rounded"
+                className="material-symbols-rounded "
                 id={isLiked ? 'likeBtn' : ''}
             >
                 favorite
