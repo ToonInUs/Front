@@ -16,6 +16,7 @@ import Navbar from './components/common/navbar'
 import NoticePage from './pages/MorePages/NoticePage'
 import SettingPage from './pages/MorePages/SettingPage'
 import DetailPages from './pages/DetailPages'
+import EditTagPages from './pages/EditTagPages'
 
 function App() {
     return (
@@ -29,8 +30,14 @@ function App() {
                     <Route path="signup" element={<Signup />} />
                     <Route path="/*" element={<HomePages />} />
                     <Route path="tagsearch" element={<TagSearchPages />} />
+                    <Route
+                        path="tagsearch/:tagid"
+                        element={<TagSearchPages />}
+                    />
+                    <Route path="search" element={<SearchPages />} />
                     <Route path="search/:text" element={<SearchPages />} />
                     <Route path="mywebtoon" element={<MyWebtoonPages />} />
+                    <Route path="edittag" element={<EditTagPages />} />
                     <Route path="more" element={<MorePages />} />
                     <Route path="more/notice" element={<NoticePage />} />
                     <Route path="more/setting" element={<SettingPage />} />
