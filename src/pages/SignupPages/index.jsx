@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../store/slices/authSlice'
-import { useSignupMutation } from '../../store/apis/authApiSlice'
+import {
+    useSignupMutation,
+    useVerifyMailQuery,
+    useVerifyNameQuery,
+} from '../../store/apis/authApiSlice'
 
 import PageTitle from '../../components/common/PageTitle'
 
@@ -11,13 +15,20 @@ const Signup = () => {
     const userRef = useRef()
     const errRef = useRef()
     const [user, setUser] = useState('')
+    let isUserVerified = false
     const [email, setEmail] = useState('')
+    let isEmailVerified = false
     const [pwd, setPwd] = useState('')
     const [repwd, setRepwd] = useState('')
     const [errMsg, setErrMsg] = useState('')
+    const [pwdCheck, setPwdCheck] = useState('')
+    const [mailCheck, setMailCheck] = useState('')
+    const [nameCheck, setNameCheck] = useState('')
     const navigate = useNavigate()
 
     const [signup, { isLoading }] = useSignupMutation()
+    const verifyMail = useVerifyMailQuery({ email })
+    const verifyName = useVerifyNameQuery({ user })
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -33,29 +44,35 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        try {
-            // 회원가입 성공
-            signup({ email: email, username: user, password: pwd })
-            // const userData = await signup({ user, pwd }).unwrap()
-            // dispatch(setCredentials({ ...userData, user }))
-            setUser('')
-            setEmail('')
-            setPwd('')
-            setRepwd('')
-            navigate('/welcome') // welcome 페이지로 이동 후 관심태그 설정하도록 유도
-        } catch (err) {
-            if (!err?.originalStatus) {
-                // isLoading: true until timeout occurs
-                setErrMsg('No Server Response')
-            } else if (err.originalStatus === 400) {
-                setErrMsg('Missing Username or Password') // ?
-            } else if (err.originalStatus === 401) {
-                setErrMsg('Unauthorized')
-            } else {
-                setErrMsg('signup Failed')
+        if (isEmailVerified == false || isUserVerified == false) {
+            // 중복확인이 필요함
+            alert('중복확인이 필요합니다.')
+        } else {
+            try {
+                // 회원가입 성공
+                signup({ mail: email, name: user, pwd: pwd })
+                // const userData = await signup({ user, pwd }).unwrap()
+                // dispatch(setCredentials({ ...userData, user }))
+                isEmailVerified = false
+                isUserVerified = false
+                setUser('')
+                setEmail('')
+                setPwd('')
+                setRepwd('')
+                navigate('/welcome') // welcome 페이지로 이동 후 관심태그 설정하도록 유도
+            } catch (err) {
+                if (!err?.originalStatus) {
+                    // isLoading: true until timeout occurs
+                    setErrMsg('No Server Response')
+                } else if (err.originalStatus === 400) {
+                    setErrMsg('Missing Username or Password') // ?
+                } else if (err.originalStatus === 401) {
+                    setErrMsg('Unauthorized')
+                } else {
+                    setErrMsg('signup Failed')
+                }
+                errRef.current.focus()
             }
-            errRef.current.focus()
         }
     }
 
@@ -71,9 +88,32 @@ const Signup = () => {
 
     const handleRepwdCheck = (e) => {
         if (pwd == repwd) {
-            return
+            setPwdCheck('')
         } else {
-            alert('비밀번호가 다릅니다.')
+            setPwdCheck('비밀번호가 다릅니다.')
+        }
+    }
+
+    const handleVerifyMail = (e) => {
+        if (verifyMail.data == true) {
+            // 중복이면?
+            setMailCheck('이미 사용중인 이메일입니다.')
+            setEmail('')
+        } else if (verifyMail.data == false) {
+            // 중복 아니면?
+            setMailCheck('')
+            isEmailVerified = true
+        }
+    }
+    const handleVerifyName = (e) => {
+        if (verifyName.data == true) {
+            // 중복이면?
+            setNameCheck('이미 사용중인 이름입니다.')
+            setUser('')
+        } else if (verifyName.data == false) {
+            // 중복 아니면?
+            setNameCheck('')
+            isUserVerified = true
         }
     }
 
@@ -110,8 +150,10 @@ const Signup = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                 />
+                <label className="text-red-500">{nameCheck}</label>
                 <button
                     type="button"
+                    onClick={handleVerifyName}
                     className="text-sm w-18 bg-gray-200 ml-auto p-2 rounded-3xl hover:bg-gray-300 active:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-100"
                 >
                     중복확인
@@ -132,8 +174,10 @@ const Signup = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                 />
+                <label className="text-red-500">{mailCheck}</label>
                 <button
                     type="button"
+                    onClick={handleVerifyMail}
                     className="text-sm w-18 bg-gray-200 ml-auto p-2 rounded-3xl hover:bg-gray-300 active:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-100"
                 >
                     중복확인
@@ -162,7 +206,7 @@ const Signup = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                 />
-
+                <label className="text-red-500">{pwdCheck}</label>
                 {/* 약관동의 */}
                 <ul>
                     <li>
