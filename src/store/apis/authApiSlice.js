@@ -12,12 +12,29 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }),
         signup: builder.mutation({
             query: (data) => ({
-                url: '/signup',
+                url: '/new',
                 method: 'POST',
                 body: { data },
             }),
         }),
+        verifyMail: builder.query({
+            query: ({ mail }) => `/new/mail/${mail}`,
+            transformResponse: (responseData) => {
+                console.log('verifyMail:', responseData)
+            },
+        }),
+        verifyName: builder.query({
+            query: ({ name }) => `/new/name/${name}`,
+            transformResponse: (responseData) => {
+                console.log('verifyName:', responseData)
+            },
+        }),
     }),
 })
 
-export const { useLoginMutation, useSignupMutation } = authApiSlice
+export const {
+    useLoginMutation,
+    useSignupMutation,
+    useVerifyMailQuery,
+    useVerifyNameQuery,
+} = authApiSlice
