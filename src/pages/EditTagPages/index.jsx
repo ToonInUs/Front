@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Button from '../../components/common/Button'
 import PageTitle from '../../components/common/PageTitle'
 
 const EditTagPages = () => {
@@ -13,21 +14,36 @@ const EditTagPages = () => {
     //     }
     // }, [third])
 
-    const tags = [{ tag: '청춘물' }, { tag: '시대극' }, { tag: '학교' }]
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+    const tagsBackground = [
+        { tag: '청춘물' },
+        { tag: '시대극' },
+        { tag: '학교' },
+    ]
+    const tagsMan = [{ tag: '광공' }, { tag: '댕댕이' }, { tag: '개냥이' }]
+    const [isDropdownOpenBackground, setIsDropdownOpenBackground] =
+        useState(false)
+    const [isDropdownOpenMan, setIsDropdownOpenMan] = useState(false)
 
-    function handleDropdown() {
-        isDropdownOpen ? setIsDropdownOpen(false) : setIsDropdownOpen(true)
+    function handleDropdownBackground() {
+        isDropdownOpenBackground
+            ? setIsDropdownOpenBackground(false)
+            : setIsDropdownOpenBackground(true)
+    }
+    function handleDropdownMan() {
+        isDropdownOpenMan
+            ? setIsDropdownOpenMan(false)
+            : setIsDropdownOpenMan(true)
     }
     function removeTag(index) {
         // 태그의 x버튼을 누르면
         setMyTags(myTags.filter((el, i) => i !== index)) // myTags에서 삭제
-
         // 체크박스 해제
     }
     function toggleTag(tag) {
-        // if myTags 5개 이상이면 추가제한
-        if (myTags.length > 5) {
+        // if myTags 5개 이상이고 없는 태그면 추가제한
+        if (myTags.length + 1 > 5 && myTags.includes(tag) == false) {
+            alert('취향태그는 최대 5개까지 설정할 수 있습니다.')
+            return
             // 메세지 띄우기
         } else if (myTags.includes(tag) == false) {
             // if myTags에 없으면 추가
@@ -36,6 +52,7 @@ const EditTagPages = () => {
             // if myTags에 있으면 제거
             setMyTags(myTags.filter((el, i) => el !== tag))
         }
+        console.log('myTags', myTags)
     }
     return (
         <section>
@@ -50,7 +67,7 @@ const EditTagPages = () => {
                             className="inline-flex items-center py-1 px-2 mr-2 m-1 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-200 dark:text-blue-800"
                         >
                             #{myTag}
-                            <button
+                            {/* <button
                                 type="button"
                                 onClick={() => removeTag(index)}
                                 className="inline-flex items-center p-0.5 ml-2 text-sm text-blue-400 bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-300 dark:hover:text-blue-900"
@@ -71,14 +88,14 @@ const EditTagPages = () => {
                                     ></path>
                                 </svg>
                                 <span className="sr-only">Remove badge</span>
-                            </button>
+                            </button> */}
                         </span>
                     ))}
                 </div>
                 {/* dropdown */}
                 <button
                     id="dropdownSearchButton"
-                    onClick={handleDropdown}
+                    onClick={handleDropdownBackground}
                     data-dropdown-toggle="dropdownSearch"
                     className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="button"
@@ -103,7 +120,7 @@ const EditTagPages = () => {
 
                 <div
                     className={
-                        isDropdownOpen
+                        isDropdownOpenBackground
                             ? ''
                             : 'hidden ' +
                               'z-10 bg-white rounded shadow w-60 dark:bg-gray-700'
@@ -114,7 +131,7 @@ const EditTagPages = () => {
                         className="h-48 px-3 py-3 rounded-lg overflow-y-auto text-sm text-gray-700 bg-gray-100 dark:text-gray-200"
                         aria-labelledby="dropdownSearchButton"
                     >
-                        {tags.map((tag, index) => (
+                        {tagsBackground.map((tag, index) => (
                             <li key={index}>
                                 <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
                                     <input
@@ -134,6 +151,67 @@ const EditTagPages = () => {
                         ))}
                     </ul>
                 </div>
+                {/* ------------------------------------------------------------------ */}
+                {/* dropdown */}
+                <button
+                    id="dropdownSearchButton"
+                    onClick={handleDropdownMan}
+                    data-dropdown-toggle="dropdownSearch"
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    type="button"
+                >
+                    남자주인공{' '}
+                    <svg
+                        className="w-4 h-4 ml-auto"
+                        aria-hidden="true"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                        ></path>
+                    </svg>
+                </button>
+
+                <div
+                    className={
+                        isDropdownOpenMan
+                            ? ''
+                            : 'hidden ' +
+                              'z-10 bg-white rounded shadow w-60 dark:bg-gray-700'
+                    }
+                >
+                    {/* 목록 */}
+                    <ul
+                        className="h-48 px-3 py-3 rounded-lg overflow-y-auto text-sm text-gray-700 bg-gray-100 dark:text-gray-200"
+                        aria-labelledby="dropdownSearchButton"
+                    >
+                        {tagsMan.map((tag, index) => (
+                            <li key={index}>
+                                <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <input
+                                        onClick={() => toggleTag(tag.tag)}
+                                        type="checkbox"
+                                        value=""
+                                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                    />
+                                    <label
+                                        htmlFor="checkbox-item-11"
+                                        className="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
+                                    >
+                                        {tag.tag}
+                                    </label>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <Button color="dark" link="/mywebtoon" text="저장하기" />
             </div>
         </section>
     )
