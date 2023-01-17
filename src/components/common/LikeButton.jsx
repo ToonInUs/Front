@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-const LikeButton = ({ type }) => {
-    const [isLiked, setisLiked] = useState(false)
+const LikeButton = ({ type, like }) => {
+    const [isLiked, setisLiked] = useState(like)
     function likeToggler() {
         {
             isLiked ? setisLiked(false) : setisLiked(true)

@@ -7,7 +7,7 @@ const WebtoonImage = ({ webtoon }) => {
             <Link to="/" className="relative">
                 <img className="rounded-xl" src="../../../img/poster.jpg" />
             </Link>
-            <LikeButton type="topRight" />
+            <LikeButton type="topRight" like={webtoon.like} />
             {/*  absolute top-0 right-0 */}
             <label className="text-sm">{webtoon.title}</label>
             <label className="text-sm text-gray-400">{webtoon.creator}</label>

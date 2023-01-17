@@ -2,19 +2,42 @@ import React from 'react'
 import Button from './Button'
 import LikeButton from './LikeButton'
 import WebtoonImage from './WebtoonImage'
+import Tag from './Tag'
+import { Link } from 'react-router-dom'
 
 const TabMywebtoon = () => {
     const [openTab, setOpenTab] = React.useState(1)
 
     const recentWebtoons = [
         { title: '제목1', creator: '작가1' },
-        { title: '제목1', creator: '작가1' },
-        { title: '제목1', creator: '작가1' },
-        { title: '제목1', creator: '작가1' },
-        { title: '제목1', creator: '작가1' },
+        { title: '제목2', creator: '작가1' },
+        { title: '제목3', creator: '작가2' },
+        { title: '제목4', creator: '작가2' },
+        { title: '제목5', creator: '작가3' },
     ]
-    const likedWebtoons = []
-    const tagedWebtoons = []
+    const likedWebtoons = [
+        { title: '제목1', creator: '작가1', like: true },
+        { title: '제목2', creator: '작가2', like: true },
+        { title: '제목3', creator: '작가3', like: true },
+        { title: '제목4', creator: '작가4', like: true },
+    ]
+    const tagedWebtoons = [
+        {
+            title: '제목1',
+            creator: '작가1',
+            tags: [{ content: '태그1' }, { content: '태그2' }],
+        },
+        {
+            title: '제목2',
+            creator: '작가1',
+            tags: [{ content: '태그1' }, { content: '태그2' }],
+        },
+        {
+            title: '제목3',
+            creator: '작가1',
+            tags: [{ content: '태그1' }, { content: '태그2' }],
+        },
+    ]
     const myComments = [
         {
             id: 0,
@@ -125,6 +148,7 @@ const TabMywebtoon = () => {
                     <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
                         <div className="px-4 py-5 flex-auto">
                             <div className="tab-content tab-space">
+                                {/* 최근감상 */}
                                 <div
                                     className={
                                         openTab === 1 ? 'block' : 'hidden'
@@ -138,13 +162,14 @@ const TabMywebtoon = () => {
                                         {recentWebtoons.map(
                                             (recentWebtoon, index) => (
                                                 <WebtoonImage
-                                                    webtoon={recentWebtoon}
                                                     key={index}
+                                                    webtoon={recentWebtoon}
                                                 />
                                             ),
                                         )}
                                     </div>
                                 </div>
+                                {/* 관심웹툰 */}
                                 <div
                                     className={
                                         openTab === 2 ? 'block' : 'hidden'
@@ -154,8 +179,18 @@ const TabMywebtoon = () => {
                                     <label className="font-bold text-lg">
                                         관심웹툰
                                     </label>
-                                    {}
+                                    <div className="grid grid-cols-3 gap-4">
+                                        {likedWebtoons.map(
+                                            (likedWebtoon, index) => (
+                                                <WebtoonImage
+                                                    webtoon={likedWebtoon}
+                                                    key={index}
+                                                />
+                                            ),
+                                        )}
+                                    </div>
                                 </div>
+                                {/* 내가 태그 단 웹툰 */}
                                 <div
                                     className={
                                         openTab === 3 ? 'block' : 'hidden'
@@ -165,8 +200,34 @@ const TabMywebtoon = () => {
                                     <label className="font-bold text-lg">
                                         내가 태그 단 웹툰
                                     </label>
-                                    <p>내가 태그 단 웹툰</p>
+                                    {tagedWebtoons.map(
+                                        (tagedWebtoon, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex flex-row p-3 mt-2 border-b border-gray-200"
+                                            >
+                                                <Link
+                                                    to="/"
+                                                    className="relative"
+                                                >
+                                                    <img
+                                                        className="w-20 h-auto rounded-xl"
+                                                        src="../../../img/poster.jpg"
+                                                    />
+                                                </Link>
+                                                <label>
+                                                    {tagedWebtoon.title}
+                                                </label>
+                                                {tagedWebtoon.tags.map(
+                                                    (tag, index) => (
+                                                        <Tag tag={tag} />
+                                                    ),
+                                                )}
+                                            </div>
+                                        ),
+                                    )}
                                 </div>
+                                {/* 내 댓글 */}
                                 <div
                                     className={
                                         openTab === 4 ? 'block' : 'hidden'
