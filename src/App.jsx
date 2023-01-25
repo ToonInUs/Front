@@ -17,6 +17,7 @@ import NoticePage from './pages/MorePages/NoticePage'
 import SettingPage from './pages/MorePages/SettingPage'
 import DetailPages from './pages/DetailPages'
 import EditTagPages from './pages/EditTagPages'
+import RecommentPages from './pages/CommentPages/RecommentPages'
 
 function App() {
     return (
@@ -42,6 +43,10 @@ function App() {
                     <Route path="more/notice" element={<NoticePage />} />
                     <Route path="more/setting" element={<SettingPage />} />
                     <Route path="webtoon/:id" element={<DetailPages />} />
+                    <Route
+                        path="webtoon/:id/recomment"
+                        element={<RecommentPages />}
+                    />
 
                     {/* protected routes */}
                     <Route path="welcome" element={<Welcome />} />
