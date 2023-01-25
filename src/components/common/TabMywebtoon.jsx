@@ -16,10 +16,10 @@ const TabMywebtoon = () => {
         { title: '제목5', creator: '작가3' },
     ]
     const likedWebtoons = [
-        { title: '제목1', creator: '작가1', like: true },
-        { title: '제목2', creator: '작가2', like: true },
-        { title: '제목3', creator: '작가3', like: true },
-        { title: '제목4', creator: '작가4', like: true },
+        { id: 0, title: '제목1', creator: '작가1', like: true },
+        { id: 1, title: '제목2', creator: '작가2', like: true },
+        { id: 2, title: '제목3', creator: '작가3', like: true },
+        { id: 3, title: '제목4', creator: '작가4', like: true },
     ]
     const tagedWebtoons = [
         {
@@ -158,7 +158,7 @@ const TabMywebtoon = () => {
                                     <label className="font-bold text-lg">
                                         최근감상
                                     </label>
-                                    <div className="grid grid-cols-3 gap-4">
+                                    <div className="grid grid-cols-3 mt-2 gap-4">
                                         {recentWebtoons.map(
                                             (recentWebtoon, index) => (
                                                 <WebtoonImage
@@ -179,10 +179,11 @@ const TabMywebtoon = () => {
                                     <label className="font-bold text-lg">
                                         관심웹툰
                                     </label>
-                                    <div className="grid grid-cols-3 gap-4">
+                                    <div className="grid grid-cols-3 mt-2 gap-4">
                                         {likedWebtoons.map(
                                             (likedWebtoon, index) => (
                                                 <WebtoonImage
+                                                    likeExist={true}
                                                     webtoon={likedWebtoon}
                                                     key={index}
                                                 />
@@ -204,7 +205,7 @@ const TabMywebtoon = () => {
                                         (tagedWebtoon, index) => (
                                             <div
                                                 key={index}
-                                                className="flex flex-row p-3 mt-2 border-b border-gray-200"
+                                                className="flex flex-row py-2 gap-2 border-b border-gray-200"
                                             >
                                                 <Link
                                                     to="/"
@@ -220,7 +221,10 @@ const TabMywebtoon = () => {
                                                 </label>
                                                 {tagedWebtoon.tags.map(
                                                     (tag, index) => (
-                                                        <Tag tag={tag} />
+                                                        <Tag
+                                                            key={index}
+                                                            tag={tag}
+                                                        />
                                                     ),
                                                 )}
                                             </div>
