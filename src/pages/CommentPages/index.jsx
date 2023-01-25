@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import LikeButton from '../../components/common/LikeButton'
 
 const CommentPages = () => {
@@ -54,9 +55,12 @@ const CommentPages = () => {
                     {/* 댓글내용 */}
                     <label className="text-gray-500">{comment.content}</label>
                     {/* 답글 버튼, 개수 */}
-                    <button className="w-auto px-2 py-1 ml-auto border rounded-lg">
+                    <Link
+                        to={`recomment`}
+                        className="w-auto px-2 py-1 ml-auto border rounded-lg"
+                    >
                         답글{comment.reComs}
-                    </button>
+                    </Link>
                 </div>
             ))}
         </div>
