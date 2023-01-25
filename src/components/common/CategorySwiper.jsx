@@ -27,9 +27,7 @@ const CategorySwiper = ({ category, webtoons }) => {
             >
                 {webtoons.map((webtoon, index) => (
                     <SwiperSlide key={index}>
-                        <WebtoonImage webtoon={webtoon} />
-                        {/* <label className="text-sm">{webtoon.title}</label>
-                            <label className="text-sm text-gray-400">{webtoon.creator}</label> */}
+                        <WebtoonImage likeExist={true} webtoon={webtoon} />
                     </SwiperSlide>
                 ))}
             </Swiper>
