@@ -95,9 +95,7 @@ const TabDetail = ({ id, description }) => {
                                     }
                                     id="link2"
                                 >
-                                    <div className="border-b border-gray-300 text-lg py-1 my-2">
-                                        태그
-                                    </div>
+                                    {/* title이 TabTag안에 있음 */}
                                     <TabTag />
                                 </div>
                                 <div
