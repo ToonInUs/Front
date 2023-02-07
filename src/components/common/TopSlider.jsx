@@ -37,16 +37,16 @@ const TopSwiper = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img src="../../../img/thumbnail1.jpg"></img>
+                    <img src="/thumbnail1.jpg"></img>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="../../../img/thumbnail2.jpg"></img>
+                    <img src="/thumbnail2.jpg"></img>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="../../../img/thumbnail3.jpg"></img>
+                    <img src="/thumbnail3.jpg"></img>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="../../../img/thumbnail4.jpg"></img>
+                    <img src="/thumbnail4.jpg"></img>
                 </SwiperSlide>
             </Swiper>
         </>

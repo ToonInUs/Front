@@ -1,13 +1,14 @@
 // import { apiSlice } from '~//apis/apiSlice'
 import { apiSlice } from './apiSlice'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const webtoonApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getWebtoons: builder.query({
             query: () => '/webtoons',
-            // transformResponse: (responseData) => {
-            //     console.log('all webtoons:', responseData)
-            // },
+            transformResponse: (responseData) => {
+                console.log('all webtoons:', responseData)
+            },
         }),
         getNewWebtoons: builder.query({
             query: () => '/webtoons/new',

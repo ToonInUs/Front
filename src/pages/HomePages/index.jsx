@@ -21,7 +21,6 @@ const HomePages = () => {
         { title: '제목6', creator: '작가1', id: 5, like: true },
     ]
 
-    //const { isLoading, isSuccess, isError, error } = useGetWebtoonsQuery()
     const {
         data: allWebtoons,
         isLoading,
@@ -30,7 +29,8 @@ const HomePages = () => {
         error,
     } = useGetWebtoonsQuery()
 
-    console.log(allWebtoons)
+    console.log('got all Webtoons data', allWebtoons)
+
     let content
     if (isLoading) {
         content = <p> "Loading..."</p>
@@ -54,7 +54,7 @@ const HomePages = () => {
                     link="/mywebtoon"
                 />
                 {content}
-                <CategorySwiper category="신작웹툰" webtoons={fetchWebtoons} />
+                <CategorySwiper category="신작웹툰" webtoons={webtoons} />
                 <CategorySwiper category="인기웹툰" webtoons={webtoons} />
                 <CategorySwiper category="내 취향 추천" webtoons={webtoons} />
                 <CategorySwiper category="관심웹툰" webtoons={webtoons} />
