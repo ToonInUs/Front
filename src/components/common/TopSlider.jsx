@@ -12,7 +12,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper'
 
 const TopSwiper = () => {
     return (
-        <>
+        <section>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -49,7 +49,7 @@ const TopSwiper = () => {
                     <img src="/thumbnail4.jpg"></img>
                 </SwiperSlide>
             </Swiper>
-        </>
+        </section>
     )
 }
 

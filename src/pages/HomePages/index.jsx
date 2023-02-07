@@ -52,7 +52,7 @@ const HomePages = () => {
     return (
         <div>
             {/* slider */}
-            <div className="bg-black">
+            <div>
                 <TopSlider />
             </div>
             {/* section */}
