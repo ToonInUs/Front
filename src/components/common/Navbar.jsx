@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
     const [openTab, setOpenTab] = React.useState(1)
     return (
-        <>
+        <section>
             <div className="static">
                 <div className="-mb-1 fixed z-10 bg-white bottom-0 w-full border-t border-gray-300 dark:border-gray-700">
                     <ul className="list-none flex-row flex -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
@@ -87,7 +87,7 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
-        </>
+        </section>
     )
 }
 export default Navbar
