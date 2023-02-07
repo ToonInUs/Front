@@ -6,7 +6,8 @@ const WebtoonImage = ({ likeExist, webtoon }) => {
         return (
             <div className="flex flex-col relative">
                 <Link to={`/webtoon/${webtoon.id}`} className="relative">
-                    <img className="rounded-lg" src="../../../img/poster.jpg" />
+                    {/* "../../../img/poster.jpg" */}
+                    <img className="rounded-lg" src={webtoon.header_img} />
                 </Link>
                 <LikeButton type="topRight" like={webtoon.like} />
                 {/*  absolute top-0 right-0 */}
