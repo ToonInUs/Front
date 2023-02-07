@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CommentPages from '../../pages/CommentPages'
+import TabTag from './TabTag'
 
-const TabDetail = () => {
-    const [openTab, setOpenTab] = React.useState(1)
-
+const TabDetail = ({ id, description }) => {
+    const [openTab, setOpenTab] = useState(1)
+    // id로 태그랑 댓글정보 가져오기
     return (
         <>
             <div className="flex flex-wrap">
@@ -73,7 +74,7 @@ const TabDetail = () => {
                     </ul>
                     {/* contents */}
                     <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
-                        <div className="px-2 py-5 flex-auto">
+                        <div className="px-2 flex-auto">
                             <div className="tab-content tab-space">
                                 <div
                                     className={
@@ -81,7 +82,12 @@ const TabDetail = () => {
                                     }
                                     id="link1"
                                 >
-                                    <p>{}줄거리</p>
+                                    <div className="border-b border-gray-300 text-lg py-1 my-2">
+                                        줄거리
+                                    </div>
+                                    <p className="text-gray-800">
+                                        {description}
+                                    </p>
                                 </div>
                                 <div
                                     className={
@@ -89,7 +95,8 @@ const TabDetail = () => {
                                     }
                                     id="link2"
                                 >
-                                    <p>태그</p>
+                                    {/* title이 TabTag안에 있음 */}
+                                    <TabTag />
                                 </div>
                                 <div
                                     className={
@@ -97,6 +104,9 @@ const TabDetail = () => {
                                     }
                                     id="link3"
                                 >
+                                    <div className="border-b border-gray-300 text-lg py-1 my-2">
+                                        댓글
+                                    </div>
                                     <CommentPages />
                                 </div>
                             </div>

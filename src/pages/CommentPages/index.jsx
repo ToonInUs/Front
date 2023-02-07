@@ -25,15 +25,17 @@ const CommentPages = () => {
 
     return (
         <div>
-            <textarea
-                type="search"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  w-full h-20 p-2.5 pr-12 resize-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            />
-            <button className="absolute right-5 top-10 text-gray-800 text-sm font-bold">
-                댓글
-                <br />
-                달기
-            </button>
+            <div className="relative">
+                <textarea
+                    type="search"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  w-full h-20 p-2.5 pr-12 resize-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+                <button className="absolute right-5 top-5 text-gray-800 text-sm font-bold">
+                    댓글
+                    <br />
+                    달기
+                </button>
+            </div>
 
             {comments.map((comment, index) => (
                 <div

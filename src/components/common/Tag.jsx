@@ -12,6 +12,7 @@ const Tag = ({ tag, index }) => {
     // )
 
     return (
+        // x 버튼이 없는 태그
         <Link to={`/tagsearch/${tag.id}`}>
             <span
                 id="badge-dismiss-default"
